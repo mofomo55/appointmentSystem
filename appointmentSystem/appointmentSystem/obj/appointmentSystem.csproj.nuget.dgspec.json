@@ -4,6 +4,88 @@
     "E:\\Projects\\appointmentSystem\\appointmentSystem\\appointmentSystem\\appointmentSystem.csproj": {}
   },
   "projects": {
+    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj",
+        "projectName": "AppointmentBooking.Application",
+        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj",
+        "UsingMicrosoftNETSdk": false,
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj",
+        "projectName": "AppointmentBooking.Domain",
+        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj",
+        "UsingMicrosoftNETSdk": false,
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj",
+        "projectName": "AppointmentBooking.Infrastructure",
+        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj",
+        "UsingMicrosoftNETSdk": false,
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj"
+              },
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj",
+        "projectName": "AppointmentBooking.Persistence",
+        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj",
+        "UsingMicrosoftNETSdk": false,
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj"
+              },
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "E:\\Projects\\appointmentSystem\\appointmentSystem\\appointmentSystem\\appointmentSystem.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -32,7 +114,17 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj"
+              },
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj"
+              },
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

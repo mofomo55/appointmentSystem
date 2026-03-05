@@ -95,6 +95,53 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "AppointmentBooking.Application/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "AppointmentBooking.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AppointmentBooking.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppointmentBooking.Application.dll": {}
+        }
+      },
+      "AppointmentBooking.Domain/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/AppointmentBooking.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppointmentBooking.Domain.dll": {}
+        }
+      },
+      "AppointmentBooking.Infrastructure/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "AppointmentBooking.Application": "1.0.0",
+          "AppointmentBooking.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AppointmentBooking.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppointmentBooking.Infrastructure.dll": {}
+        }
+      },
+      "AppointmentBooking.Persistence/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "AppointmentBooking.Application": "1.0.0",
+          "AppointmentBooking.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AppointmentBooking.Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppointmentBooking.Persistence.dll": {}
+        }
       }
     }
   },
@@ -526,10 +573,33 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "AppointmentBooking.Application/1.0.0": {
+      "type": "project",
+      "path": "../AppointmentBooking.Application/AppointmentBooking.Application.csproj",
+      "msbuildProject": "../AppointmentBooking.Application/AppointmentBooking.Application.csproj"
+    },
+    "AppointmentBooking.Domain/1.0.0": {
+      "type": "project",
+      "path": "../AppointmentBooking.Domain/AppointmentBooking.Domain.csproj",
+      "msbuildProject": "../AppointmentBooking.Domain/AppointmentBooking.Domain.csproj"
+    },
+    "AppointmentBooking.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../AppointmentBooking.Infrastructure/AppointmentBooking.Infrastructure.csproj",
+      "msbuildProject": "../AppointmentBooking.Infrastructure/AppointmentBooking.Infrastructure.csproj"
+    },
+    "AppointmentBooking.Persistence/1.0.0": {
+      "type": "project",
+      "path": "../AppointmentBooking.Persistence/AppointmentBooking.Persistence.csproj",
+      "msbuildProject": "../AppointmentBooking.Persistence/AppointmentBooking.Persistence.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "AppointmentBooking.Application >= 1.0.0",
+      "AppointmentBooking.Infrastructure >= 1.0.0",
+      "AppointmentBooking.Persistence >= 1.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.22.1",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -566,7 +636,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
+              "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj"
+            },
+            "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj": {
+              "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj"
+            },
+            "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj": {
+              "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

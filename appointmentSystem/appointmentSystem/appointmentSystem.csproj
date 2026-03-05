@@ -13,4 +13,15 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AppointmentBooking.Application\AppointmentBooking.Application.csproj" />
+    <ProjectReference Include="..\AppointmentBooking.Infrastructure\AppointmentBooking.Infrastructure.csproj" />
+    <ProjectReference Include="..\AppointmentBooking.Persistence\AppointmentBooking.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+    <Folder Include="Extension\" />
+  </ItemGroup>
+
 </Project>

@@ -3,3 +3,20 @@
 ################################################################################
 
 *.vsidx
+/appointmentSystem/.vs/appointmentSystem/v17/.suo
+/appointmentSystem/.vs/appointmentSystem/v17/DocumentLayout.json
+/appointmentSystem/appointmentSystem/bin/Debug/net8.0/appointmentSystem.dll
+/appointmentSystem/appointmentSystem/bin/Debug/net8.0/appointmentSystem.exe
+/appointmentSystem/appointmentSystem/bin/Debug/net8.0/appointmentSystem.pdb
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/ref/appointmentSystem.dll
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/refint/appointmentSystem.dll
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/apphost.exe
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/appointmentSystem.AssemblyInfo.cs
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/appointmentSystem.AssemblyInfoInputs.cache
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/appointmentSystem.csproj.FileListAbsolute.txt
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/appointmentSystem.dll
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/appointmentSystem.pdb
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/appointmentSystem.sourcelink.json
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
+/appointmentSystem/appointmentSystem/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
+/appointmentSystem/.vs/appointmentSystem/v17/DocumentLayout.backup.json
