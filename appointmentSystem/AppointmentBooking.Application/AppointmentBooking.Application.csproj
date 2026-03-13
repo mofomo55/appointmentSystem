@@ -45,16 +45,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppointmentBooking.Domain\AppointmentBooking.Domain.csproj">
-      <Project>{d93e9459-dbfa-4149-9cb3-6a9a11846a0b}</Project>
-      <Name>AppointmentBooking.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="DTOs\" />
     <Folder Include="Features\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppointmentBooking.Domains\AppointmentBooking.Domains.csproj">
+      <Project>{494ccf7b-b88f-400e-a2b2-f96e00e9b1bd}</Project>
+      <Name>AppointmentBooking.Domains</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

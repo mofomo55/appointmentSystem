@@ -4,86 +4,178 @@
     "E:\\Projects\\appointmentSystem\\appointmentSystem\\appointmentSystem\\appointmentSystem.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
+    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domains\\AppointmentBooking.Domains.csproj": {
+      "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj",
-        "projectName": "AppointmentBooking.Application",
-        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj",
-        "UsingMicrosoftNETSdk": false,
+        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domains\\AppointmentBooking.Domains.csproj",
+        "projectName": "AppointmentBooking.Domains",
+        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domains\\AppointmentBooking.Domains.csproj",
+        "packagesPath": "C:\\Users\\Mohamad Eibo\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domains\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Mohamad Eibo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
-          "net472": {
-            "projectReferences": {
-              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj": {
-                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj"
-              }
-            }
-          }
-        }
-      },
-      "frameworks": {
-        "net472": {}
-      }
-    },
-    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj": {
-      "restore": {
-        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj",
-        "projectName": "AppointmentBooking.Domain",
-        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj",
-        "UsingMicrosoftNETSdk": false,
-        "frameworks": {
-          "net472": {
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
-        }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net472": {}
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
+        }
       }
     },
-    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj": {
+    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\AppointmentBooking.Persistencee.csproj": {
+      "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj",
-        "projectName": "AppointmentBooking.Infrastructure",
-        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj",
-        "UsingMicrosoftNETSdk": false,
+        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\AppointmentBooking.Persistencee.csproj",
+        "projectName": "AppointmentBooking.Persistencee",
+        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\AppointmentBooking.Persistencee.csproj",
+        "packagesPath": "C:\\Users\\Mohamad Eibo\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Mohamad Eibo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
-          "net472": {
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {
-              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
-                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj"
-              },
-              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj": {
-                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj"
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domains\\AppointmentBooking.Domains.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domains\\AppointmentBooking.Domains.csproj"
               }
             }
           }
-        }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net472": {}
-      }
-    },
-    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj": {
-      "restore": {
-        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj",
-        "projectName": "AppointmentBooking.Persistence",
-        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj",
-        "UsingMicrosoftNETSdk": false,
-        "frameworks": {
-          "net472": {
-            "projectReferences": {
-              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
-                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj"
-              },
-              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj": {
-                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domain\\AppointmentBooking.Domain.csproj"
-              }
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.14, )"
+            },
+            "MySQL.Data.Entities": {
+              "target": "Package",
+              "version": "[6.8.3, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
+            "MySql.Data.EntityFramework": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql.Design": {
+              "target": "Package",
+              "version": "[1.1.2, )"
             }
-          }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
         }
-      },
-      "frameworks": {
-        "net472": {}
       }
     },
     "E:\\Projects\\appointmentSystem\\appointmentSystem\\appointmentSystem\\appointmentSystem.csproj": {
@@ -104,7 +196,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -112,17 +204,11 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {
-              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj": {
-                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Application\\AppointmentBooking.Application.csproj"
-              },
-              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj": {
-                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructure\\AppointmentBooking.Infrastructure.csproj"
-              },
-              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj": {
-                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistence\\AppointmentBooking.Persistence.csproj"
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\AppointmentBooking.Persistencee.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\AppointmentBooking.Persistencee.csproj"
               }
             }
           }
@@ -140,12 +226,40 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.14, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.22.1, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
+            "MySql.Data.EntityFramework": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
