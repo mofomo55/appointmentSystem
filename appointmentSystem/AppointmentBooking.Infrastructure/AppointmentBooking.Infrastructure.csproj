@@ -49,10 +49,6 @@
       <Project>{2dab5a15-82b2-47b7-bbdb-318315f68451}</Project>
       <Name>AppointmentBooking.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AppointmentBooking.Domain\AppointmentBooking.Domain.csproj">
-      <Project>{d93e9459-dbfa-4149-9cb3-6a9a11846a0b}</Project>
-      <Name>AppointmentBooking.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
