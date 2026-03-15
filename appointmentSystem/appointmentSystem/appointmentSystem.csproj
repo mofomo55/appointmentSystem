@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AppointmentBooking.AppLayer\AppointmentBooking.AppLayer.csproj" />
     <ProjectReference Include="..\AppointmentBooking.Persistencee\AppointmentBooking.Persistencee.csproj" />
   </ItemGroup>
 
