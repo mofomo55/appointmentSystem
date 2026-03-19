@@ -11,5 +11,18 @@ namespace AppointmentBooking.Persistencee.Context
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Role)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Created_at)
+                .HasDefaultValueSql("GETDATE()");
+        }
+
     }
 }
