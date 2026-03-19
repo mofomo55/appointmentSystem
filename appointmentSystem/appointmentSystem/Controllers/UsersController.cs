@@ -1,4 +1,5 @@
 ﻿
+using AppointmentBooking.AppLayer.DTO;
 using AppointmentBooking.AppLayer.Services;
 using AppointmentBooking.Domains.Entities;
 using AppointmentBooking.Persistencee.Repositories;
@@ -18,14 +19,14 @@ namespace appointmentSystem.Controllers
             _UserServ = UserServ;
         }
 
-         [HttpGet]
+         [HttpGet("GetAllUsers")]
         public async Task<IActionResult> GetUsers()
         {
             var users = await _UserServ.GetUsers();
 
             return Ok(users);
         }
-        [HttpGet("{id}")]
+        [HttpGet("GetUser/{id}")]
         public async Task<IActionResult> GetOneUserById(int id)
         {
             var user = await _UserServ.GetOneUser(id);
@@ -36,8 +37,8 @@ namespace appointmentSystem.Controllers
             return Ok(user);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddUser([FromBody] User user)
+        [HttpPost("SignUp")]
+        public async Task<IActionResult> AddUser([FromBody] CreateNewUserDTO user)
         {
             var newUser = await _UserServ.AddUser(user);
 
@@ -46,8 +47,18 @@ namespace appointmentSystem.Controllers
 
             return Ok(newUser);
         }
+        [HttpPost("Login")]
+        public async Task<IActionResult> LoginTheUser([FromBody] LoginDTO user)
+        {
+            var newUser = await _UserServ.LoginAsync(user);
 
-        [HttpPut("{id}")]
+            if (newUser == null)
+                return BadRequest();
+
+            return Ok(newUser);
+        }
+
+        [HttpPut("UpdateUser/{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
         {
             var updatedUser = await _UserServ.UpdateUser(id, user);
@@ -58,7 +69,7 @@ namespace appointmentSystem.Controllers
             return Ok(updatedUser);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteUser{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var deleted = await _UserServ.DeleteUser(id);

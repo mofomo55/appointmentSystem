@@ -13,6 +13,8 @@ namespace AppointmentBooking.AppLayer.Interfaces
 
         Task<User?> GetUseById(int id);
 
+        Task<User?> GetByEmailAsync(string email);
+
         Task<User> AddNewUser(User user);
 
          Task<User?> UpdateOneUser(int id, User updatedUser);

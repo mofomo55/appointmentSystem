@@ -1,5 +1,6 @@
 using AppointmentBooking.AppLayer.Interfaces;
 using AppointmentBooking.AppLayer.Services;
+using AppointmentBooking.Domains.interfaces;
 using AppointmentBooking.Persistencee.config;
 using AppointmentBooking.Persistencee.Repositories;
 
@@ -13,7 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceServices(builder.Configuration);
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>(); 
+
+builder.Services.AddScoped<IPasswordHasher, PasswordHasherService>();
 
 builder.Services.AddScoped<UserService>();
 
