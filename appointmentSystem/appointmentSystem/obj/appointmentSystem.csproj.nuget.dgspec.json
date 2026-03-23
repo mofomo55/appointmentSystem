@@ -140,6 +140,97 @@
         }
       }
     },
+    "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructuree\\AppointmentBooking.Infrastructuree.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructuree\\AppointmentBooking.Infrastructuree.csproj",
+        "projectName": "AppointmentBooking.Infrastructuree",
+        "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructuree\\AppointmentBooking.Infrastructuree.csproj",
+        "packagesPath": "C:\\Users\\Mohamad Eibo\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructuree\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Mohamad Eibo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.AppLayer\\AppointmentBooking.AppLayer.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.AppLayer\\AppointmentBooking.AppLayer.csproj"
+              },
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domains\\AppointmentBooking.Domains.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Domains\\AppointmentBooking.Domains.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.14, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[10.0.5, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.16.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.16.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\AppointmentBooking.Persistencee.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -290,6 +381,9 @@
             "projectReferences": {
               "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.AppLayer\\AppointmentBooking.AppLayer.csproj": {
                 "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.AppLayer\\AppointmentBooking.AppLayer.csproj"
+              },
+              "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructuree\\AppointmentBooking.Infrastructuree.csproj": {
+                "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Infrastructuree\\AppointmentBooking.Infrastructuree.csproj"
               },
               "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\AppointmentBooking.Persistencee.csproj": {
                 "projectPath": "E:\\Projects\\appointmentSystem\\appointmentSystem\\AppointmentBooking.Persistencee\\AppointmentBooking.Persistencee.csproj"

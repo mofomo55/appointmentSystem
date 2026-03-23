@@ -1,8 +1,11 @@
 using AppointmentBooking.AppLayer.Interfaces;
 using AppointmentBooking.AppLayer.Services;
 using AppointmentBooking.Domains.interfaces;
+using AppointmentBooking.Infrastructuree;
 using AppointmentBooking.Persistencee.config;
 using AppointmentBooking.Persistencee.Repositories;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +21,29 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<IPasswordHasher, PasswordHasherService>();
 
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+
 builder.Services.AddScoped<UserService>();
+
+builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
+    {
+        var config = builder.Configuration;
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+          //  ValidateIssuerSigningKey = true,
+
+            ValidIssuer = config["Jwt:Issuer"],
+            ValidAudience = config["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(config["Jwt:Key"]))
+        };
+    });
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -31,8 +56,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 app.MapControllers();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.Run();

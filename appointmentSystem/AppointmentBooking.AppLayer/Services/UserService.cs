@@ -16,11 +16,14 @@ namespace AppointmentBooking.AppLayer.Services
         //Business logic here in this file
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher _Passwordhasher;
+        private readonly IJwtTokenGenerator _JwtTokenGenerator;
 
-        public UserService(IUserRepository Userrepository, IPasswordHasher Passwordhasher)
+        public UserService(IUserRepository Userrepository, IPasswordHasher Passwordhasher, IJwtTokenGenerator JwtTokenGenerator)
         {
             _userRepository = Userrepository;
             _Passwordhasher = Passwordhasher;
+            _JwtTokenGenerator = JwtTokenGenerator;
+
         }
 
 
@@ -57,7 +60,7 @@ namespace AppointmentBooking.AppLayer.Services
             };
         }
 
-        public async Task<UserDTO?> LoginAsync(LoginDTO dto)
+        public async Task<AuthResponseDto?> LoginAsync(LoginDTO dto)
         {
             var tUser = await _userRepository.GetByEmailAsync(dto.Email);
 
@@ -70,11 +73,53 @@ namespace AppointmentBooking.AppLayer.Services
             if (!isValid)
                 throw new Exception("Invalid password");
 
-            return new UserDTO
+            var accessToken = _JwtTokenGenerator.GenerateToken(tUser);
+
+            // 👇 إنشاء Refresh Token
+            var refreshToken = Guid.NewGuid().ToString();
+
+            tUser.SetRefreshToken(refreshToken, DateTime.UtcNow.AddDays(7));
+
+            await _userRepository.UpdateOneUser(tUser.Id, tUser);
+
+            return new AuthResponseDto
             {
-                Name = tUser.Name,
-                Email = tUser.Email,
-                Role = (UserRole)tUser.Role
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
+            };
+
+            //   var token = _JwtTokenGenerator.GenerateToken(tUser);
+
+            //   return token;
+
+            //return new UserDTO
+            //{
+            //    Name = tUser.Name,
+            //    Email = tUser.Email,
+            //    Role = (UserRole)tUser.Role
+            //};
+        }
+
+        public async Task<AuthResponseDto> RefreshTokenAsync(string refreshToken)
+        {
+            var user = await _userRepository.GetByRefreshTokenAsync(refreshToken);
+
+            if (user == null || user.RefreshTokenExpiryTime < DateTime.UtcNow)
+                throw new Exception("Invalid refresh token");
+
+            var newAccessToken = _JwtTokenGenerator.GenerateToken(user);
+
+            // 🔥 الأفضل: تغيير refresh token كل مرة (Rotation)
+            var newRefreshToken = Guid.NewGuid().ToString();
+
+            user.SetRefreshToken(newRefreshToken, DateTime.UtcNow.AddDays(7));
+
+            await _userRepository.UpdateOneUser(user.Id, user);
+
+            return new AuthResponseDto
+            {
+                AccessToken = newAccessToken,
+                RefreshToken = newRefreshToken
             };
         }
 
