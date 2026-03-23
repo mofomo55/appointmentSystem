@@ -20,5 +20,9 @@ namespace AppointmentBooking.AppLayer.Interfaces
          Task<User?> UpdateOneUser(int id, User updatedUser);
 
         Task<bool> DeleteOneUser(int id);
+
+        Task<User?> GetByRefreshTokenAsync(string refreshToken);
+
+       
     }
 }

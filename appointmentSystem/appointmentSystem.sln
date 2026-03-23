@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Domains"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.AppLayer", "AppointmentBooking.AppLayer\AppointmentBooking.AppLayer.csproj", "{EF985509-591E-41A6-84EE-9C8C32847998}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Infrastructuree", "AppointmentBooking.Infrastructuree\AppointmentBooking.Infrastructuree.csproj", "{B8F200B2-B75E-4BBD-9218-161312C07C6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EF985509-591E-41A6-84EE-9C8C32847998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF985509-591E-41A6-84EE-9C8C32847998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF985509-591E-41A6-84EE-9C8C32847998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F200B2-B75E-4BBD-9218-161312C07C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F200B2-B75E-4BBD-9218-161312C07C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F200B2-B75E-4BBD-9218-161312C07C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F200B2-B75E-4BBD-9218-161312C07C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

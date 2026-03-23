@@ -26,6 +26,11 @@ namespace AppointmentBooking.Domains.Entities
 
         public DateTime Created_at { get; set; }
 
+        public string? RefreshToken { get; private set; }
+        public DateTime? RefreshTokenExpiryTime { get; private set; }
+
+
+
         public User(string name,string email,string password,string phone, UserRole? role)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -49,7 +54,13 @@ namespace AppointmentBooking.Domains.Entities
             Password = password;
             Role = role;
             Phone = phone;
-        } 
+        }
+
+        public void SetRefreshToken(string token, DateTime expiry)
+        {
+            RefreshToken = token;
+            RefreshTokenExpiryTime = expiry;
+        }
 
 
     }

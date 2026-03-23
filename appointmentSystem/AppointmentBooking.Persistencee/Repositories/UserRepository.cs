@@ -46,6 +46,12 @@ namespace AppointmentBooking.Persistencee.Repositories
           .FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
         }
 
+        public async Task<User?> GetByRefreshTokenAsync(string refreshToken)
+        {
+            return await _context.users
+          .FirstOrDefaultAsync(u => u.RefreshToken.ToLower() == refreshToken.ToLower());
+        }
+
 
         public async Task<User?> UpdateOneUser(int id, User updatedUser)
         {
