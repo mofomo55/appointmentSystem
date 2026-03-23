@@ -92,17 +92,17 @@ namespace appointmentSystem.Controllers
             }
         }
 
-        [HttpPut("UpdateUser/{id}")]
-        [Authorize]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
-        {
-            var updatedUser = await _UserServ.UpdateUser(id, user);
+//        [HttpPut("UpdateUser/{id}")]
+//        [Authorize]
+//        public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
+//        {
+//            var updatedUser = await _UserServ.UpdateUser(id, user);
 
-            if (updatedUser == null)
-                return NotFound();
+//            if (updatedUser == null)
+//                return NotFound();
 
-0            return Ok(updatedUser);
-        }
+//0            return Ok(updatedUser);
+//        }
 
         [HttpDelete("DeleteUser{id}")]
         [Authorize(Roles = "admin")]
