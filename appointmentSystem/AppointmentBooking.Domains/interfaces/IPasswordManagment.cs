@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace AppointmentBooking.Domains.interfaces
 {
-    public interface IPasswordHasher
+    public interface IPasswordManagment
     {
        public string Hash(string password);
        public bool Verfiy(string password, string passwordHash);
+
+       public  List<string> Validate(string password);
     }
 }

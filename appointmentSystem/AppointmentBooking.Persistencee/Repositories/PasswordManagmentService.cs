@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppointmentBooking.Persistencee.Repositories
 {
-    public class PasswordHasherService : IPasswordHasher
+    public class PasswordManagmentService : IPasswordManagment
     {
         private readonly Microsoft.AspNetCore.Identity.PasswordHasher<string> _hasher = new();
     
@@ -21,6 +21,22 @@ namespace AppointmentBooking.Persistencee.Repositories
         {
             var result = _hasher.VerifyHashedPassword(null, PasswordHash, password);
             return result == Microsoft.AspNetCore.Identity.PasswordVerificationResult.Success;
+        }
+
+        public  List<string> Validate(string password)
+        {
+            var errors = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 8)
+                errors.Add("Password must be at least 8 characters long.");
+
+            if (!password.Any(char.IsUpper))
+                errors.Add("Password must contain at least one uppercase letter.");
+
+            if (!password.Any(ch => !char.IsLetterOrDigit(ch)))
+                errors.Add("Password must contain at least one special character.");
+
+            return errors;
         }
 
     }

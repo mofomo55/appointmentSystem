@@ -46,12 +46,21 @@ namespace appointmentSystem.Controllers
         [HttpPost("SignUp")]
         public async Task<IActionResult> AddUser([FromBody] CreateNewUserDTO user)
         {
-            var newUser = await _UserServ.AddUser(user);
+            try
+            {
+                var newUser = await _UserServ.AddUser(user);
 
-            if (newUser == null)
-                return BadRequest();
+                return Ok(new
+                {
+                    
+                    NewUser = newUser
+                });
+            }
+            catch (Exception ex)
+            { 
+                return BadRequest(new { message = ex.Message });
+            }
 
-            return Ok(newUser);
         }
         [HttpPost("Login")]
         public async Task<IActionResult> LoginTheUser([FromBody] LoginDTO user)
