@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static AppointmentBooking.Domains.Enums;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AppointmentBooking.AppLayer.Services
 {
@@ -15,10 +16,10 @@ namespace AppointmentBooking.AppLayer.Services
     {
         //Business logic here in this file
         private readonly IUserRepository _userRepository;
-        private readonly IPasswordHasher _Passwordhasher;
+        private readonly IPasswordManagment _Passwordhasher;
         private readonly IJwtTokenGenerator _JwtTokenGenerator;
 
-        public UserService(IUserRepository Userrepository, IPasswordHasher Passwordhasher, IJwtTokenGenerator JwtTokenGenerator)
+        public UserService(IUserRepository Userrepository, IPasswordManagment Passwordhasher, IJwtTokenGenerator JwtTokenGenerator)
         {
             _userRepository = Userrepository;
             _Passwordhasher = Passwordhasher;
@@ -46,6 +47,22 @@ namespace AppointmentBooking.AppLayer.Services
 
         public async Task<UserDTO?> AddUser(CreateNewUserDTO dto)
         {
+
+
+            var tEnterdEmail = await _userRepository.GetByEmailAsync(dto.Email);
+
+            if (tEnterdEmail != null)
+            {
+                throw new Exception("this User is Already Registered");
+            }
+
+            var tPasswordValidation = _Passwordhasher.Validate(dto.password);
+
+            if (tPasswordValidation.Any())
+            {
+                throw new ArgumentException(string.Join(" | ", tPasswordValidation));
+            }
+
             var hashedpassword = _Passwordhasher.Hash(dto.password);
 
             var tUser = new User(dto.Name, dto.Email, hashedpassword, dto.Phone, dto.Role);

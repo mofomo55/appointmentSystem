@@ -1,9 +1,12 @@
 using AppointmentBooking.AppLayer.Interfaces;
 using AppointmentBooking.AppLayer.Services;
+using AppointmentBooking.Domains.Entities;
 using AppointmentBooking.Domains.interfaces;
 using AppointmentBooking.Infrastructuree;
 using AppointmentBooking.Persistencee.config;
+using AppointmentBooking.Persistencee.Context;
 using AppointmentBooking.Persistencee.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -19,9 +22,11 @@ builder.Services.AddPersistenceServices(builder.Configuration);
 
 builder.Services.AddScoped<IUserRepository, UserRepository>(); 
 
-builder.Services.AddScoped<IPasswordHasher, PasswordHasherService>();
+builder.Services.AddScoped<IPasswordManagment, PasswordManagmentService>();
 
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<UserService>();
 
