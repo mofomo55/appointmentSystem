@@ -2,6 +2,8 @@
 using AppointmentBooking.AppLayer.Interfaces;
 using AppointmentBooking.Domains.Entities;
 using AppointmentBooking.Domains.interfaces;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,32 +17,32 @@ namespace AppointmentBooking.AppLayer.Services
     public class UserService
     {
         //Business logic here in this file
+        private readonly IEmailConfirmRepository _EmailConfirmRepository;
         private readonly IUserRepository _userRepository;
         private readonly IPasswordManagment _Passwordhasher;
         private readonly IJwtTokenGenerator _JwtTokenGenerator;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserService(IUserRepository Userrepository, IPasswordManagment Passwordhasher, IJwtTokenGenerator JwtTokenGenerator)
+        public UserService(IUserRepository Userrepository, IPasswordManagment Passwordhasher, IJwtTokenGenerator JwtTokenGenerator, IEmailConfirmRepository EmailConfirmRepository, IHttpContextAccessor httpContextAccessor)
         {
             _userRepository = Userrepository;
             _Passwordhasher = Passwordhasher;
             _JwtTokenGenerator = JwtTokenGenerator;
-
+            _EmailConfirmRepository = EmailConfirmRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
 
         public async Task<List<User>> GetUsers()
         {
             var allUsers = await _userRepository.GetAllUsers();
-            //var filteredUsers = allUsers
-            // .Where(u => u.Role == "user")
-            // .ToList();
             return allUsers;
         }
 
-        public async Task<User> GetOneUser(int id)
+        public async Task<User> GetOneUser(Guid id)
         {
             var selectedUsers = await _userRepository.GetUseById(id);
-            if (id <= 0)
+            if (selectedUsers == null)
                 return null;
             return selectedUsers;
         }
@@ -69,11 +71,29 @@ namespace AppointmentBooking.AppLayer.Services
 
             await _userRepository.AddNewUser(tUser);
 
+            if (await _EmailConfirmRepository.GetSavedToken(tUser.Id) == null)
+            {
+                await _EmailConfirmRepository.GenerateManualConfirmation(tUser.Id);
+            }
+
+
+            var tSavedEmailData = await _EmailConfirmRepository.GetSavedToken(tUser.Id);
+
+            var tSavedToken = tSavedEmailData.token;
+
+            var request = _httpContextAccessor.HttpContext.Request;
+            var baseUrl = $"{request.Scheme}://{request.Host}";
+
+            // 4. بناء الرابط
+            var confirmationLink = $"{baseUrl}/api/Users/confirm-email?token={tSavedToken}&email={tUser.Email}";
+
             return new UserDTO
             {
-                Name = tUser.Name,
-                Email = tUser.Email,
-                Role = (UserRole)tUser.Role
+              Id = tUser.Id,
+              Name = tUser.Name,
+              Email = tUser.Email,
+              Role = (UserRole)tUser.Role,
+              emailconfirmLink = confirmationLink
             };
         }
 
@@ -105,16 +125,6 @@ namespace AppointmentBooking.AppLayer.Services
                 RefreshToken = refreshToken
             };
 
-            //   var token = _JwtTokenGenerator.GenerateToken(tUser);
-
-            //   return token;
-
-            //return new UserDTO
-            //{
-            //    Name = tUser.Name,
-            //    Email = tUser.Email,
-            //    Role = (UserRole)tUser.Role
-            //};
         }
 
         public async Task<AuthResponseDto> RefreshTokenAsync(string refreshToken)
@@ -140,12 +150,30 @@ namespace AppointmentBooking.AppLayer.Services
             };
         }
 
-        public async Task<User?> UpdateUser(int id, User user)
+        public async Task<bool?> ConfirmEmail(string token, string email)
+        {
+           var tUserToken =  await _EmailConfirmRepository.GetSavedTokenByEmail(token, email);
+
+            if (tUserToken == null || tUserToken.ExpiresAt < DateTime.UtcNow)
+            {
+                throw new Exception("Invalid Link or expired!!"); 
+            }
+
+            await _userRepository.SetConfirmationStatus(email,true);
+
+            await _EmailConfirmRepository.RemoveTokenAfterConfirmation(token);
+
+            return true;
+        }
+
+
+
+        public async Task<User?> UpdateUser(Guid id, User user)
         {
             return await _userRepository.UpdateOneUser(id, user);
         }
 
-        public async Task<bool> DeleteUser(int id)
+        public async Task<bool> DeleteUser(Guid id)
         {
             return await _userRepository.DeleteOneUser(id);
         }

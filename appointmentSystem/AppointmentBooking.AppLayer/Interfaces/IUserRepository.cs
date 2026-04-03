@@ -11,18 +11,20 @@ namespace AppointmentBooking.AppLayer.Interfaces
     {
         Task<List<User>> GetAllUsers();
 
-        Task<User?> GetUseById(int id);
+        Task<User?> GetUseById(Guid id);
 
         Task<User?> GetByEmailAsync(string email);
 
         Task<User> AddNewUser(User user);
 
-         Task<User?> UpdateOneUser(int id, User updatedUser);
+         Task<User?> UpdateOneUser(Guid id, User updatedUser);
 
-        Task<bool> DeleteOneUser(int id);
+        Task<bool> DeleteOneUser(Guid id);
 
         Task<User?> GetByRefreshTokenAsync(string refreshToken);
 
-       
+        Task SetConfirmationStatus(string email,bool status);
+
+
     }
 }

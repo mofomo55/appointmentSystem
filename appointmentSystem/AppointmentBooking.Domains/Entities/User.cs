@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using static AppointmentBooking.Domains.Enums;
@@ -10,7 +11,7 @@ namespace AppointmentBooking.Domains.Entities
 {
     public class User
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string? Name { get; set; }
         public string? Email  { get; set; }
 
@@ -48,6 +49,7 @@ namespace AppointmentBooking.Domains.Entities
                 throw new Exception("password is required");
             }
 
+            Id = Guid.NewGuid();
             
             Name = name;
             Email = email;
