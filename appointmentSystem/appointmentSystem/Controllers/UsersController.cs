@@ -33,7 +33,7 @@ namespace appointmentSystem.Controllers
         }
         [HttpGet("GetUser/{id}")]
         [Authorize]
-        public async Task<IActionResult> GetOneUserById(int id)
+        public async Task<IActionResult> GetOneUserById(Guid id)
         {
             var user = await _UserServ.GetOneUser(id);
 
@@ -115,7 +115,7 @@ namespace appointmentSystem.Controllers
 
         [HttpDelete("DeleteUser{id}")]
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteUser(Guid id)
         {
             var deleted = await _UserServ.DeleteUser(id);
 
@@ -123,6 +123,22 @@ namespace appointmentSystem.Controllers
                 return NotFound();
 
             return Ok("User deleted successfully");
+        }
+
+
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmationEmail(string token, string email)
+        {
+            try
+            {
+                var result = await _UserServ.ConfirmEmail(token, email);
+
+                return Ok("User Confirmation is Successful!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }

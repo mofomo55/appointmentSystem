@@ -26,7 +26,7 @@ namespace AppointmentBooking.Persistencee.Repositories
             return await _context.users.ToListAsync();
         }
 
-        public async Task<User?> GetUseById(int id)
+        public async Task<User?> GetUseById(Guid id)
         {
             return await _context.users
           .FirstOrDefaultAsync(p => p.Id == id);
@@ -53,7 +53,7 @@ namespace AppointmentBooking.Persistencee.Repositories
         }
 
 
-        public async Task<User?> UpdateOneUser(int id, User updatedUser)
+        public async Task<User?> UpdateOneUser(Guid id, User updatedUser)
         {
             var user = await _context.users.FirstOrDefaultAsync(u => u.Id == id);
 
@@ -69,7 +69,7 @@ namespace AppointmentBooking.Persistencee.Repositories
             return user;
         }
 
-        public async Task<bool> DeleteOneUser(int id)
+        public async Task<bool> DeleteOneUser(Guid id)
         {
             var user = await _context.users.FirstOrDefaultAsync(u => u.Id == id);
 
@@ -80,6 +80,14 @@ namespace AppointmentBooking.Persistencee.Repositories
             await _context.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task SetConfirmationStatus(string email,bool status)
+        {
+            var user = await _context.users.FirstOrDefaultAsync(u => u.Email == email);
+            user.email_verified = status;
+            user.email_verified_at = DateTime.UtcNow;
+            await _context.SaveChangesAsync();
         }
 
     }

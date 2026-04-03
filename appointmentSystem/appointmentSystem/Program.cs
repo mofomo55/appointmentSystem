@@ -20,7 +20,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceServices(builder.Configuration);
 
-builder.Services.AddScoped<IUserRepository, UserRepository>(); 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<IEmailConfirmRepository, EmailConfirmRepository>();
 
 builder.Services.AddScoped<IPasswordManagment, PasswordManagmentService>();
 

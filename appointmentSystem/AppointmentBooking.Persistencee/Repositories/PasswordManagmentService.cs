@@ -1,4 +1,5 @@
 ﻿using AppointmentBooking.Domains.interfaces;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,14 @@ namespace AppointmentBooking.Persistencee.Repositories
     public class PasswordManagmentService : IPasswordManagment
     {
         private readonly Microsoft.AspNetCore.Identity.PasswordHasher<string> _hasher = new();
-    
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+
+        public PasswordManagmentService(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
 
         public string Hash(string password)
         {
@@ -38,6 +46,27 @@ namespace AppointmentBooking.Persistencee.Repositories
 
             return errors;
         }
+
+       // public async Task<string> GenerateManualConfirmationLink(User user)
+    //    {
+            // 1. توليد توكين عشوائي فريد
+            //var token = Guid.NewGuid().ToString();
+
+            // 2. حفظ التوكين في قاعدة البيانات مع وقت انتهاء (مثلاً 24 ساعة)
+         //   user.EmailConfirmationToken = token;
+         //   user.TokenExpiration = DateTime.UtcNow.AddHours(24);
+
+         //   await _userRepository.UpdateAsync(user); // حفظ التغييرات
+
+            // 3. جلب الدومين تلقائياً
+       //     var request = _httpContextAccessor.HttpContext.Request;
+//            var baseUrl = $"{request.Scheme}://{request.Host}";
+//
+            // 4. بناء الرابط
+      //      var confirmationLink = $"{baseUrl}/api/auth/confirm-email?token={token}&email={user.Email}";
+
+      //      return confirmationLink;
+      //  }
 
     }
 }
