@@ -3,6 +3,7 @@ using AppointmentBooking.AppLayer.DTO;
 using AppointmentBooking.AppLayer.Services;
 using AppointmentBooking.Domains.Entities;
 using AppointmentBooking.Persistencee.Repositories;
+using appointmentSystem.Middleware;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -22,15 +23,17 @@ namespace appointmentSystem.Controllers
             _UserServ = UserServ;
         }
 
-         [HttpGet("GetAllUsers")]
-        // [Authorize]
-         [Authorize(Roles = "admin")]
+        [HttpGet("GetAllUsers")]
+        [Authorize(Roles = "admin")]
+        [ServiceFilter(typeof(EmailVerifiedFilter))]
         public async Task<IActionResult> GetUsers()
         {
             var users = await _UserServ.GetUsers();
 
             return Ok(users);
         }
+
+        [ServiceFilter(typeof(EmailVerifiedFilter))]
         [HttpGet("GetUser/{id}")]
         [Authorize]
         public async Task<IActionResult> GetOneUserById(Guid id)

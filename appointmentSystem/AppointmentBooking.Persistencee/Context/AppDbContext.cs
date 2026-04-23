@@ -7,6 +7,8 @@ namespace AppointmentBooking.Persistencee.Context
     {
         public DbSet<User> users { get; set; }
         public DbSet<email_verifications> email_verifications { get; set; }
+
+        public DbSet<backgroundtasks> backgroundtasks { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
@@ -19,6 +21,7 @@ namespace AppointmentBooking.Persistencee.Context
             // Map to exact MySQL table names to avoid "Table doesn't exist" errors
             modelBuilder.Entity<User>().ToTable("users");
             modelBuilder.Entity<email_verifications>().ToTable("email_verifications");
+            modelBuilder.Entity<backgroundtasks>().ToTable("backgroundtasks");
 
             // Role Enum to String
             modelBuilder.Entity<User>()
@@ -32,6 +35,10 @@ namespace AppointmentBooking.Persistencee.Context
 
             modelBuilder.Entity<email_verifications>()
                 .Property(u => u.Created_at)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+            modelBuilder.Entity<backgroundtasks>()
+                .Property(u => u.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
             // If email_verifications doesn't have an "Id" column, 
