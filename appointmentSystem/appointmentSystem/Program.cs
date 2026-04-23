@@ -6,6 +6,7 @@ using AppointmentBooking.Infrastructuree;
 using AppointmentBooking.Persistencee.config;
 using AppointmentBooking.Persistencee.Context;
 using AppointmentBooking.Persistencee.Repositories;
+using appointmentSystem.Middleware;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -27,6 +28,8 @@ builder.Services.AddScoped<IEmailConfirmRepository, EmailConfirmRepository>();
 builder.Services.AddScoped<IPasswordManagment, PasswordManagmentService>();
 
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+
+builder.Services.AddScoped<IBackgroundTaskGeneration, BackGroundTaskRepository>();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -51,6 +54,8 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
     });
 
 builder.Services.AddAuthorization();
+
+builder.Services.AddScoped<EmailVerifiedFilter>();
 
 var app = builder.Build();
 

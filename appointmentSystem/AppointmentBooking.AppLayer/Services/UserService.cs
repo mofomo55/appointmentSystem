@@ -22,14 +22,16 @@ namespace AppointmentBooking.AppLayer.Services
         private readonly IPasswordManagment _Passwordhasher;
         private readonly IJwtTokenGenerator _JwtTokenGenerator;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IBackgroundTaskGeneration _BackgroundTaskGeneration;
 
-        public UserService(IUserRepository Userrepository, IPasswordManagment Passwordhasher, IJwtTokenGenerator JwtTokenGenerator, IEmailConfirmRepository EmailConfirmRepository, IHttpContextAccessor httpContextAccessor)
+        public UserService(IUserRepository Userrepository, IPasswordManagment Passwordhasher, IJwtTokenGenerator JwtTokenGenerator, IEmailConfirmRepository EmailConfirmRepository, IHttpContextAccessor httpContextAccessor, IBackgroundTaskGeneration BackgroundTaskGeneration)
         {
             _userRepository = Userrepository;
             _Passwordhasher = Passwordhasher;
             _JwtTokenGenerator = JwtTokenGenerator;
             _EmailConfirmRepository = EmailConfirmRepository;
             _httpContextAccessor = httpContextAccessor;
+            _BackgroundTaskGeneration = BackgroundTaskGeneration;
         }
 
 
@@ -86,6 +88,14 @@ namespace AppointmentBooking.AppLayer.Services
 
             // 4. بناء الرابط
             var confirmationLink = $"{baseUrl}/api/Users/confirm-email?token={tSavedToken}&email={tUser.Email}";
+
+            BackgroundTaskDataEmail backgroundTaskEmail = new BackgroundTaskDataEmail();
+
+            backgroundTaskEmail.To = dto.Email;
+            backgroundTaskEmail.Subject = "email Confirmation";
+            backgroundTaskEmail.Body = confirmationLink;
+
+           await _BackgroundTaskGeneration.CreateNewEmailTask(backgroundTaskEmail);
 
             return new UserDTO
             {
